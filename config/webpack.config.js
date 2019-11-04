@@ -26,8 +26,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
-const lessRegex = /\.less$/;
-const lessModuleRegex = /\.module\.less/;
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -496,23 +494,6 @@ module.exports = function(webpackEnv) {
                 },
                 'sass-loader'
               ),
-            },
-            ,
-            {
-              test: lessRegex,
-              exclude: lessModuleRegex,
-              use: getStyleLoaders(
-                  {
-                    importLoaders: 2,
-                    sourceMap: isEnvProduction && shouldUseSourceMap,
-                  },
-                  'less-loader'
-              ),
-              // Don't consider CSS imports dead code even if the
-              // containing package claims to have no side effects.
-              // Remove this when webpack adds a warning or an error for this.
-              // See https://github.com/webpack/webpack/issues/6571
-              sideEffects: true,
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
