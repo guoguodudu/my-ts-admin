@@ -1,4 +1,4 @@
-import {Modal, notification} from "antd";
+import {message, Modal, notification} from "antd";
 
 export function ContentErrorInfo({error}: { error: any }) {
     console.log("error:", error);
@@ -30,6 +30,15 @@ export function warningInfo(msg:String) {
     return;
 }
 
+// 系统错误信息-中间模态框
+export function sysErrorInfo(msg:String) {
+    // 清除掉过多的errorInfo
+    message.error(msg);
+}
+export function sysSuccessInfo(msg:String) {
+    // 清除掉过多的errorInfo
+    message.success(msg);
+}
 // 右上角弹出成功消息通知
 export function successInfo(msg:String) {
     notification.destroy()

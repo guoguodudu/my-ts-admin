@@ -1,5 +1,5 @@
 import axios from "axios";
-import {successInfo, warningInfo} from "./Info";
+import {ContentErrorInfo, errorInfo, successInfo, sysErrorInfo, sysSuccessInfo, warningInfo} from "./Info";
 
 // Create an instance using the config defaults provided by the library
 // At this point the timeout config value is `0` as is the default for the library
@@ -33,7 +33,7 @@ axio.interceptors.response.use(response => {
             return Promise.reject();
         }
 
-        successInfo(response.data.retMsg);
+    sysSuccessInfo(response.data.retMsg);
         return response.data;
     }, error => {
         let message = '服务器出错'
@@ -89,6 +89,7 @@ axio.interceptors.response.use(response => {
         } else {
             message = '您的网络不通，请检查您的网络'
         }
+    sysErrorInfo(message);
         return Promise.reject(message)
 
     }

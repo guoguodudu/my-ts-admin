@@ -1,5 +1,5 @@
 import axio from "./axios";
 
-const userApi = {
-    list: (data: any) => axio.post("user/list", data),
+export const userApi = {
+    list: () => axio.post("http://localhost:8080/use/list"),
 }
