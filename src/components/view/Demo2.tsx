@@ -7,7 +7,7 @@ import BreadcrumbCustom from '../BreadcrumbCustom';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { ClickParam } from 'antd/lib/menu';
 import { ButtonSize } from 'antd/lib/button';
-import {userApi} from "../../api/demo";
+import {userApi, userApiC} from "../../api/demo";
 
 type ButtonsState = {
     size: ButtonSize;
@@ -26,6 +26,8 @@ class Demo2 extends React.Component<any, ButtonsState> {
 
     handleSizeChange = (e: RadioChangeEvent) => {
         console.log('userApi.list("1")',userApi.list());
+        let  a='{"caseSn":"12312312","debtorCertid":"123","debtorName":"123","mobile":"17521213202","captcha":"0"}'
+        console.log('userApi.list("2")',userApiC.list(a));
 
         this.setState({ size: e.target.value });
     };
