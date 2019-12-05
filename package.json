@@ -86,8 +86,8 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test.js"
   },
   "eslintConfig": {
     "extends": "react-app"
